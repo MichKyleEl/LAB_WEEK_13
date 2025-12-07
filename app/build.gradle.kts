@@ -4,6 +4,8 @@ plugins {
     kotlin("kapt")
 }
 
+
+
 android {
     namespace = "com.example.test_lab_week_12"
     compileSdk = 36
@@ -16,6 +18,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures{
+        dataBinding = true
     }
 
     buildTypes {
