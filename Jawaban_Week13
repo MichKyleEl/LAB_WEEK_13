@@ -1,0 +1,33 @@
+1. Why is MVVM important? Which files represent Model, which files represent View, and which files represent ViewModel?
+
+MVVM (Model-View-ViewModel) is important because it separates the User Interface (UI) from the business logic. This separation means that when you need to redesign the UI or update the logic, you only modify the relevant component without affecting the others, making the code easier to test and maintain.
+
+
+Based on this project:
+
+Model (Data Layer): Movie.kt (Entity), MovieDao.kt, MovieDatabase.kt, and MovieRepository.kt.
+
+View (UI Layer): MainActivity.kt, activity_main.xml, MovieAdapter.kt, and RecyclerViewBinding.kt.
+
+ViewModel: MovieViewModel.kt.
+
+2. In Part 1, you implemented Data Binding, why is this more efficient than using the normal method?
+
+Data Binding is more efficient because it allows the ViewModel to communicate directly with the Views in the XML layout without needing to use "findViewById" in the Activity. This reduces boilerplate code and allows the UI elements (like the RecyclerView) to be populated directly with data from the ViewModel (LiveData/StateFlow) via attributes like "app:list", making the code cleaner and more reactive.
+
+
+3. In Part 2, you implemented the Singleton Pattern, why is this important?
+
+The Singleton Pattern is important because creating a new instance of a database is an expensive operation. By using Singleton, we ensure that there is only one single instance of the database open throughout multiple threads. This prevents "Race Conditions" and ensures data validity across the application.
+
+
+
+4. In Part 2 & 3, you implemented the Repository Pattern, why is this important?
+
+The Repository Pattern is important because it handles data synchronization between the web service (API) and the local database (Room). It ensures that the local database is kept up to date with the server. Crucially, it allows users to access and view the app's data even when there is no internet connection (offline support).
+
+
+
+5. In part 3, you implemented the Worker Manager, is there another way to refresh your database with the latest data other than using Worker?
+
+Yes, there are other ways. You could refresh the data manually by calling the fetch function in the ViewModel's "init" block every time the app starts, or by implementing a "SwipeRefreshLayout" to let the user manually trigger an update. For background scheduling, older components like "AlarmManager" or "JobScheduler" could be used, but WorkManager is preferred for reliability.
