@@ -18,6 +18,7 @@ constraintlayout = "2.2.1"
 materialVersion = "1.7.0"
 recyclerview = "1.4.0"
 retrofit = "3.0.0"
+room = "2.6.1"
 moshi = "1.15.1"
 
 
@@ -45,7 +46,9 @@ material-v170 = { module = "com.google.android.material:material", version.ref =
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
-
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
